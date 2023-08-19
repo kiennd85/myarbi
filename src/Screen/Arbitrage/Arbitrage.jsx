@@ -163,13 +163,13 @@ const Arbitrage = () => {
         Stop
       </button>
 
-      {/* <button
+      <button
         type="button"
         style={{ margin: '20px' }}
         onClick={btnTest}
       >
         Test hàm
-      </button> */}
+      </button>
     </>
   );
 };
