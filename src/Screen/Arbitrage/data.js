@@ -5,8 +5,8 @@ let item_o1_fitfi = {
   cex_trade_fee: 0.001,
   cex_withdraw_fee: 1,
   list_sell: [
-    { amountA1: 50, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'no', gain_lv1: 1 },
-    { amountA1: 50, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDC', alert_gain: 'no', gain_lv1: 20 },
+    { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'no', gain_lv1: 1 },
+    { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDC', alert_gain: 'no', gain_lv1: 20 },
     { amountA1: 250, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
     //{ amountA1: 300, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
   ],
@@ -423,7 +423,7 @@ let item_t1_spex = {
 
 export const item_list_1 = [
   { key: 1, data: item_o1_fitfi },
-  // { key: 2, data: item_o2_fitfi },
+  { key: 2, data: item_o2_fitfi },
   { key: 3, data: item_o3_fitfi },
   // { key: 4, data: item_o4_fitfi },
   // { key: 5, data: item_o1_kcal },
