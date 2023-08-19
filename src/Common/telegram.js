@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const TOKEN = '6286108957:AAFD0v5y9TBmTltYA3VeOAt4UwXU9_NGE94';
+const TOKEN = process.env.REACT_APP_SECRET_NAME;
 
 const url = `https://api.telegram.org/bot${TOKEN}/`;
 
