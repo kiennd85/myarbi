@@ -316,7 +316,7 @@ let item_o2_newtoken = {
   name_cex: 'Bybit',
   cex_trade_fee: 0.001,
   cex_withdraw_fee: 8,
-  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'USDT', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
+  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'BUSD', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
 };
 
 let item_o3_newtoken = {
@@ -325,7 +325,7 @@ let item_o3_newtoken = {
   name_cex: 'Gateio',
   cex_trade_fee: 0.003,
   cex_withdraw_fee: 52,
-  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'USDT', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
+  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'BUSD', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
 };
 
 let item_t1_fitfi = {
