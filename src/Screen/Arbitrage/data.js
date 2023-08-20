@@ -316,7 +316,7 @@ let item_o2_newtoken = {
   name_cex: 'Bybit',
   cex_trade_fee: 0.001,
   cex_withdraw_fee: 8,
-  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'USDT', token_r: 'WBNB', alert_gain: 'yes', gain_lv1: 3 }],
+  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'USDT', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
 };
 
 let item_o3_newtoken = {
@@ -324,8 +324,8 @@ let item_o3_newtoken = {
   type: 'CEX',
   name_cex: 'Gateio',
   cex_trade_fee: 0.003,
-  cex_withdraw_fee: 10,
-  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'USDT', token_r: 'WBNB', alert_gain: 'yes', gain_lv1: 3 }],
+  cex_withdraw_fee: 52,
+  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'USDT', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
 };
 
 let item_t1_fitfi = {
@@ -449,8 +449,8 @@ export const item_list_2 = [
   // { key: 22, data: item_o4_xeta },
   // { key: 24, data: item_o5_xeta },
   { key: 25, data: item_o1_newtoken },
-  //{ key: 26, data: item_o2_newtoken },
-  //{ key: 27, data: item_o3_newtoken },
+  { key: 26, data: item_o2_newtoken },
+  { key: 27, data: item_o3_newtoken },
 ];
 
 export const item_list_3 = [
