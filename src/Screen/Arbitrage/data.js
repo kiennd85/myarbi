@@ -7,7 +7,7 @@ let item_o1_fitfi = {
   list_sell: [
     { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'no', gain_lv1: 1 },
     { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDC', alert_gain: 'no', gain_lv1: 20 },
-    { amountA1: 250, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
+    //{ amountA1: 250, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
     //{ amountA1: 300, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
   ],
 };
@@ -19,7 +19,10 @@ let item_o2_fitfi = {
   name_dex: 'Step',
   token_base: 'USDC',
   information: '',
-  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'CEX', chain: 'Step', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 0.9 }],
+  list_sell: [
+    { amountA1: 200, crosschain_fee: 0, type: 'CEX', chain: 'Step', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 0.9 },
+    { amountA1: 100, crosschain_fee: 0, type: 'CEX', chain: 'Step', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 0.9 },
+  ],
 };
 
 let item_o3_fitfi = {
