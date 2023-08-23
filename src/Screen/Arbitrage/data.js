@@ -6,7 +6,7 @@ let item_o1_fitfi = {
   cex_withdraw_fee: 1,
   list_sell: [
     { amountA1: 200, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'no', gain_lv1: 1 },
-    { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'yes', gain_lv1: 3, alert_tele: 'yes', gain_tele: 3, count: 0, count_interval: 45 },
+    { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'yes', gain_lv1: 3, alert_tele: 'yes', gain_tele: 4, count: 0, count_interval: 45 },
     { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDC', alert_gain: 'no', gain_lv1: 20 },
     //{ amountA1: 250, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
     //{ amountA1: 300, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
@@ -324,12 +324,14 @@ let item_o2_newtoken = {
 };
 
 let item_o3_newtoken = {
-  token_name: 'SEILOR',
-  type: 'CEX',
-  name_cex: 'Gateio',
-  cex_trade_fee: 0.003,
-  cex_withdraw_fee: 52,
-  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'BNB', name_dex: 'Pancake', token_base: 'BUSD', token_r: '', alert_gain: 'yes', gain_lv1: 3 }],
+  token_name: 'CYBER',
+  type: 'DEX',
+  chain: 'BNB',
+  name_dex: 'Pancake',
+  token_base: 'BUSD',
+  token_r: 'WBNB',
+  information: '',
+  list_sell: [{ amountA1: 100, crosschain_fee: 0, type: 'CEX', chain: 'BNB', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 3 }],
 };
 
 let item_t1_fitfi = {
@@ -454,7 +456,7 @@ export const item_list_2 = [
   // { key: 24, data: item_o5_xeta },
   { key: 25, data: item_o1_newtoken },
   { key: 26, data: item_o2_newtoken },
-  { key: 27, data: item_o3_newtoken },
+  //{ key: 27, data: item_o3_newtoken },
 ];
 
 export const item_list_3 = [
@@ -466,4 +468,4 @@ export const item_list_3 = [
   { key: 't6', data: item_t2_fitfi },
   { key: 't7', data: item_t3_kcal },
 ];
-//key max = 28
+//key max = 29
