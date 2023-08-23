@@ -6,7 +6,7 @@ let item_o1_fitfi = {
   cex_withdraw_fee: 1,
   list_sell: [
     { amountA1: 200, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'no', gain_lv1: 1 },
-    { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'yes', gain_lv1: 6 },
+    { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDT', alert_gain: 'no', gain_lv1: 6 },
     { amountA1: 100, crosschain_fee: 0, type: 'DEX', chain: 'Step', name_dex: 'Step', token_base: 'USDC', alert_gain: 'no', gain_lv1: 20 },
     //{ amountA1: 250, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
     //{ amountA1: 300, crosschain_fee: 200, type: 'DEX', chain: 'BNB', name_dex: 'Thena', token_base: 'USDT', alert_gain: 'no', gain_lv1: 20 },
