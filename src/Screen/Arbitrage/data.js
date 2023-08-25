@@ -369,8 +369,8 @@ let item_t1_kcal = {
   cex_trade_fee: 0.001,
   cex_withdraw_fee: 0,
   list_sell: [
-    { amountA1: 300, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: '', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'yes', gain_lv1: 3 },
-    { amountA1: 200, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: '', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'yes', gain_lv1: 1.5 },
+    { amountA1: 300, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: '', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 3 },
+    { amountA1: 200, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: '', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 1.5 },
     { amountA1: 100, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: '', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'yes', gain_lv1: 0.4, alert_tele: 'yes', gain_tele: 0.5, count: 0, count_interval: 45 },
   ],
 };
