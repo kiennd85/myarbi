@@ -411,7 +411,7 @@ let item_t1_primal = {
   cex_trade_fee: 0.001,
   cex_withdraw_fee: 10,
   list_sell: [
-    { amountA1: 50, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: 'USDC', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'no', gain_lv1: 0.5 },
+    { amountA1: 50, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'FITFI', token_r: 'USDC', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'yes', gain_lv1: 0.5 },
     //{ amountA1: 50, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'KCAL', token_r: 'USDC', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'yes', gain_lv1: 0.5 },
   ],
 };
