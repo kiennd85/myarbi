@@ -66,6 +66,9 @@ function cex_get_orderbook_bid(current_order_book, token_dest, cex_dest) {
         order_book_bid = order_book_item.orderbook.data.result.b;
       } else if (cex_dest == 'Gateio') {
         order_book_bid = order_book_item.orderbook.data.bids;
+      } else if (cex_dest == 'Houbi') {
+        order_book_bid = order_book_item.orderbook.data.tick.bids;
+        //order_book_ask = order_book_item.orderbook.data.tick.asks;
       }
     }
   }
