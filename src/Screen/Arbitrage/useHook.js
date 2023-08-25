@@ -23,6 +23,8 @@ const token_list_3 = [
   { cex: 'Bybit', name: 'KCAL' },
   { cex: 'Bybit', name: 'PRIMAL' },
   { cex: 'Houbi', name: 'KCAL' },
+  { cex: 'Houbi', name: 'FITFI' },
+
   { cex: 'Gateio', name: 'SPEX' },
   { cex: 'Gateio', name: 'FITFI' },
   { cex: 'Gateio', name: 'KCAL' },
