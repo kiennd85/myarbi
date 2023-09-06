@@ -1226,6 +1226,7 @@ function find_token_BNB(token_name) {
     ['EGO', '0x44a21B3577924DCD2e9C81A3347D204C36a55466', 18],
     ['SOPH', '0x73fBD93bFDa83B111DdC092aa3a4ca77fD30d380', 18],
     ['SEILOR', '0xE29142E14E52bdFBb8108076f66f49661F10EC10', 18],
+    ['CYBER', '0x14778860e937f509e651192a90589de711fb88a9', 18],
   ];
 
   let token_address = '';
