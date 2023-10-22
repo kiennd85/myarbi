@@ -5,7 +5,9 @@ export const query_getAmountOut = async (props) => {
 
   let result;
   try {
-    result = await router_contract.methods.getAmountOut(amountIn, tokenA_address, tokenB_address).call();
+    result = await router_contract.methods
+      .getAmountOut(amountIn, tokenA_address, tokenB_address)
+      .call();
   } catch (error) {
     console.log(error);
     result = 'error';
@@ -29,10 +31,17 @@ export const query_getAmountsOut = async (props) => {
 };
 
 const create_swapExactTokensForTokens = async (props) => {
-  const { router_contract, amountIn, amountOutMin, path, account_address } = props;
+  const { router_contract, amountIn, amountOutMin, path, account_address } =
+    props;
   const deadline = Math.floor(Date.now() / 1000) + 60 * 6;
   //console.log(deadline);
-  const tx = await router_contract.methods.swapExactTokensForTokens(amountIn, amountOutMin, path, account_address, deadline);
+  const tx = await router_contract.methods.swapExactTokensForTokens(
+    amountIn,
+    amountOutMin,
+    path,
+    account_address,
+    deadline
+  );
   //console.log(tx);
   return tx;
 };
@@ -49,7 +58,13 @@ function step_dex() {
         { type: 'address', name: '_WFITFI', internalType: 'address' },
       ],
     },
-    { type: 'function', stateMutability: 'view', outputs: [{ type: 'address', name: '', internalType: 'address' }], name: 'WFITFI', inputs: [] },
+    {
+      type: 'function',
+      stateMutability: 'view',
+      outputs: [{ type: 'address', name: '', internalType: 'address' }],
+      name: 'WFITFI',
+      inputs: [],
+    },
     {
       type: 'function',
       stateMutability: 'nonpayable',
@@ -81,14 +96,24 @@ function step_dex() {
       name: 'addLiquidityFITFI',
       inputs: [
         { type: 'address', name: 'token', internalType: 'address' },
-        { type: 'uint256', name: 'amountTokenDesired', internalType: 'uint256' },
+        {
+          type: 'uint256',
+          name: 'amountTokenDesired',
+          internalType: 'uint256',
+        },
         { type: 'uint256', name: 'amountTokenMin', internalType: 'uint256' },
         { type: 'uint256', name: 'amountFITFIMin', internalType: 'uint256' },
         { type: 'address', name: 'to', internalType: 'address' },
         { type: 'uint256', name: 'deadline', internalType: 'uint256' },
       ],
     },
-    { type: 'function', stateMutability: 'view', outputs: [{ type: 'address', name: '', internalType: 'address' }], name: 'factory', inputs: [] },
+    {
+      type: 'function',
+      stateMutability: 'view',
+      outputs: [{ type: 'address', name: '', internalType: 'address' }],
+      name: 'factory',
+      inputs: [],
+    },
     {
       type: 'function',
       stateMutability: 'pure',
@@ -103,7 +128,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'pure',
-      outputs: [{ type: 'uint256', name: 'amountOut', internalType: 'uint256' }],
+      outputs: [
+        { type: 'uint256', name: 'amountOut', internalType: 'uint256' },
+      ],
       name: 'getAmountOut',
       inputs: [
         { type: 'uint256', name: 'amountIn', internalType: 'uint256' },
@@ -114,7 +141,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'view',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'getAmountsIn',
       inputs: [
         { type: 'uint256', name: 'amountOut', internalType: 'uint256' },
@@ -124,7 +153,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'view',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'getAmountsOut',
       inputs: [
         { type: 'uint256', name: 'amountIn', internalType: 'uint256' },
@@ -180,7 +211,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'nonpayable',
-      outputs: [{ type: 'uint256', name: 'amountFITFI', internalType: 'uint256' }],
+      outputs: [
+        { type: 'uint256', name: 'amountFITFI', internalType: 'uint256' },
+      ],
       name: 'removeLiquidityFITFISupportingFeeOnTransferTokens',
       inputs: [
         { type: 'address', name: 'token', internalType: 'address' },
@@ -215,7 +248,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'nonpayable',
-      outputs: [{ type: 'uint256', name: 'amountFITFI', internalType: 'uint256' }],
+      outputs: [
+        { type: 'uint256', name: 'amountFITFI', internalType: 'uint256' },
+      ],
       name: 'removeLiquidityFITFIWithPermitSupportingFeeOnTransferTokens',
       inputs: [
         { type: 'address', name: 'token', internalType: 'address' },
@@ -255,7 +290,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'payable',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'swapExactFITFIForTokens',
       inputs: [
         { type: 'uint256', name: 'amountOutMin', internalType: 'uint256' },
@@ -279,7 +316,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'nonpayable',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'swapExactTokensForFITFI',
       inputs: [
         { type: 'uint256', name: 'amountIn', internalType: 'uint256' },
@@ -305,7 +344,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'nonpayable',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'swapExactTokensForTokens',
       inputs: [
         { type: 'uint256', name: 'amountIn', internalType: 'uint256' },
@@ -331,7 +372,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'payable',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'swapFITFIForExactTokens',
       inputs: [
         { type: 'uint256', name: 'amountOut', internalType: 'uint256' },
@@ -343,7 +386,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'nonpayable',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'swapTokensForExactFITFI',
       inputs: [
         { type: 'uint256', name: 'amountOut', internalType: 'uint256' },
@@ -356,7 +401,9 @@ function step_dex() {
     {
       type: 'function',
       stateMutability: 'nonpayable',
-      outputs: [{ type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' }],
+      outputs: [
+        { type: 'uint256[]', name: 'amounts', internalType: 'uint256[]' },
+      ],
       name: 'swapTokensForExactTokens',
       inputs: [
         { type: 'uint256', name: 'amountOut', internalType: 'uint256' },
@@ -390,9 +437,24 @@ export function thena_bnb() {
     {
       anonymous: false,
       inputs: [
-        { indexed: true, internalType: 'address', name: 'sender', type: 'address' },
-        { indexed: false, internalType: 'uint256', name: 'amount0In', type: 'uint256' },
-        { indexed: false, internalType: 'address', name: '_tokenIn', type: 'address' },
+        {
+          indexed: true,
+          internalType: 'address',
+          name: 'sender',
+          type: 'address',
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'amount0In',
+          type: 'uint256',
+        },
+        {
+          indexed: false,
+          internalType: 'address',
+          name: '_tokenIn',
+          type: 'address',
+        },
         { indexed: true, internalType: 'address', name: 'to', type: 'address' },
         { indexed: false, internalType: 'bool', name: 'stable', type: 'bool' },
       ],
@@ -445,7 +507,11 @@ export function thena_bnb() {
       inputs: [
         { internalType: 'address', name: 'token', type: 'address' },
         { internalType: 'bool', name: 'stable', type: 'bool' },
-        { internalType: 'uint256', name: 'amountTokenDesired', type: 'uint256' },
+        {
+          internalType: 'uint256',
+          name: 'amountTokenDesired',
+          type: 'uint256',
+        },
         { internalType: 'uint256', name: 'amountTokenMin', type: 'uint256' },
         { internalType: 'uint256', name: 'amountETHMin', type: 'uint256' },
         { internalType: 'address', name: 'to', type: 'address' },
@@ -460,7 +526,13 @@ export function thena_bnb() {
       stateMutability: 'payable',
       type: 'function',
     },
-    { inputs: [], name: 'factory', outputs: [{ internalType: 'address', name: '', type: 'address' }], stateMutability: 'view', type: 'function' },
+    {
+      inputs: [],
+      name: 'factory',
+      outputs: [{ internalType: 'address', name: '', type: 'address' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
     {
       inputs: [
         { internalType: 'uint256', name: 'amountIn', type: 'uint256' },
@@ -490,7 +562,9 @@ export function thena_bnb() {
         },
       ],
       name: 'getAmountsOut',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'view',
       type: 'function',
     },
@@ -508,7 +582,13 @@ export function thena_bnb() {
       stateMutability: 'view',
       type: 'function',
     },
-    { inputs: [{ internalType: 'address', name: 'pair', type: 'address' }], name: 'isPair', outputs: [{ internalType: 'bool', name: '', type: 'bool' }], stateMutability: 'view', type: 'function' },
+    {
+      inputs: [{ internalType: 'address', name: 'pair', type: 'address' }],
+      name: 'isPair',
+      outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
     {
       inputs: [
         { internalType: 'address', name: 'tokenA', type: 'address' },
@@ -704,7 +784,9 @@ export function thena_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactETHForTokens',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'payable',
       type: 'function',
     },
@@ -747,7 +829,9 @@ export function thena_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactTokensForETH',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -791,7 +875,9 @@ export function thena_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactTokensForTokens',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -806,7 +892,9 @@ export function thena_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactTokensForTokensSimple',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -832,7 +920,13 @@ export function thena_bnb() {
       stateMutability: 'nonpayable',
       type: 'function',
     },
-    { inputs: [], name: 'wETH', outputs: [{ internalType: 'contract IWETH', name: '', type: 'address' }], stateMutability: 'view', type: 'function' },
+    {
+      inputs: [],
+      name: 'wETH',
+      outputs: [{ internalType: 'contract IWETH', name: '', type: 'address' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
     { stateMutability: 'payable', type: 'receive' },
   ];
   const router_address = '0xd4ae6eCA985340Dd434D38F470aCCce4DC78D109';
@@ -854,7 +948,13 @@ export function pancake_bnb() {
       stateMutability: 'nonpayable',
       type: 'constructor',
     },
-    { inputs: [], name: 'WETH', outputs: [{ internalType: 'address', name: '', type: 'address' }], stateMutability: 'view', type: 'function' },
+    {
+      inputs: [],
+      name: 'WETH',
+      outputs: [{ internalType: 'address', name: '', type: 'address' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
     {
       inputs: [
         { internalType: 'address', name: 'tokenA', type: 'address' },
@@ -878,7 +978,11 @@ export function pancake_bnb() {
     {
       inputs: [
         { internalType: 'address', name: 'token', type: 'address' },
-        { internalType: 'uint256', name: 'amountTokenDesired', type: 'uint256' },
+        {
+          internalType: 'uint256',
+          name: 'amountTokenDesired',
+          type: 'uint256',
+        },
         { internalType: 'uint256', name: 'amountTokenMin', type: 'uint256' },
         { internalType: 'uint256', name: 'amountETHMin', type: 'uint256' },
         { internalType: 'address', name: 'to', type: 'address' },
@@ -893,7 +997,13 @@ export function pancake_bnb() {
       stateMutability: 'payable',
       type: 'function',
     },
-    { inputs: [], name: 'factory', outputs: [{ internalType: 'address', name: '', type: 'address' }], stateMutability: 'view', type: 'function' },
+    {
+      inputs: [],
+      name: 'factory',
+      outputs: [{ internalType: 'address', name: '', type: 'address' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
     {
       inputs: [
         { internalType: 'uint256', name: 'amountOut', type: 'uint256' },
@@ -912,7 +1022,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'reserveOut', type: 'uint256' },
       ],
       name: 'getAmountOut',
-      outputs: [{ internalType: 'uint256', name: 'amountOut', type: 'uint256' }],
+      outputs: [
+        { internalType: 'uint256', name: 'amountOut', type: 'uint256' },
+      ],
       stateMutability: 'pure',
       type: 'function',
     },
@@ -922,7 +1034,9 @@ export function pancake_bnb() {
         { internalType: 'address[]', name: 'path', type: 'address[]' },
       ],
       name: 'getAmountsIn',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'view',
       type: 'function',
     },
@@ -932,7 +1046,9 @@ export function pancake_bnb() {
         { internalType: 'address[]', name: 'path', type: 'address[]' },
       ],
       name: 'getAmountsOut',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'view',
       type: 'function',
     },
@@ -992,7 +1108,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'removeLiquidityETHSupportingFeeOnTransferTokens',
-      outputs: [{ internalType: 'uint256', name: 'amountETH', type: 'uint256' }],
+      outputs: [
+        { internalType: 'uint256', name: 'amountETH', type: 'uint256' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -1031,7 +1149,9 @@ export function pancake_bnb() {
         { internalType: 'bytes32', name: 's', type: 'bytes32' },
       ],
       name: 'removeLiquidityETHWithPermitSupportingFeeOnTransferTokens',
-      outputs: [{ internalType: 'uint256', name: 'amountETH', type: 'uint256' }],
+      outputs: [
+        { internalType: 'uint256', name: 'amountETH', type: 'uint256' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -1065,7 +1185,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapETHForExactTokens',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'payable',
       type: 'function',
     },
@@ -1077,7 +1199,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactETHForTokens',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'payable',
       type: 'function',
     },
@@ -1102,7 +1226,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactTokensForETH',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -1128,7 +1254,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapExactTokensForTokens',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -1154,7 +1282,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapTokensForExactETH',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -1167,7 +1297,9 @@ export function pancake_bnb() {
         { internalType: 'uint256', name: 'deadline', type: 'uint256' },
       ],
       name: 'swapTokensForExactTokens',
-      outputs: [{ internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' }],
+      outputs: [
+        { internalType: 'uint256[]', name: 'amounts', type: 'uint256[]' },
+      ],
       stateMutability: 'nonpayable',
       type: 'function',
     },
@@ -1227,6 +1359,7 @@ function find_token_BNB(token_name) {
     ['SOPH', '0x73fBD93bFDa83B111DdC092aa3a4ca77fD30d380', 18],
     ['SEILOR', '0xE29142E14E52bdFBb8108076f66f49661F10EC10', 18],
     ['CYBER', '0x14778860e937f509e651192a90589de711fb88a9', 18],
+    ['GMT', '0x3019BF2a2eF8040C242C9a4c5c4BD4C81678b2A1', 8],
   ];
 
   let token_address = '';
@@ -1244,4 +1377,9 @@ function find_token_BNB(token_name) {
     return [token_address, token_decimal];
   } else alert('Không tìm thấy địa chỉ token');
 }
-export { step_dex, create_swapExactTokensForTokens, find_token_Step, find_token_BNB };
+export {
+  step_dex,
+  create_swapExactTokensForTokens,
+  find_token_Step,
+  find_token_BNB,
+};

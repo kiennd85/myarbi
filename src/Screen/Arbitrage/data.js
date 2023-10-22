@@ -705,24 +705,14 @@ let item_o5_xeta = {
 };
 
 let item_o1_newtoken = {
-  token_name: 'SEILOR',
+  token_name: 'GMT',
   type: 'DEX',
   chain: 'BNB',
   name_dex: 'Pancake',
-  token_base: 'BUSD',
+  token_base: 'USDC',
   //token_r: '',
   information: '',
   list_sell: [
-    {
-      amountA1: 100,
-      crosschain_fee: 0,
-      type: 'CEX',
-      chain: 'BNB',
-      name_cex: 'Gateio',
-      cex_trade_fee: 0.003,
-      alert_gain: 'yes',
-      gain_lv1: 3,
-    },
     {
       amountA1: 100,
       crosschain_fee: 0,
@@ -733,15 +723,25 @@ let item_o1_newtoken = {
       alert_gain: 'yes',
       gain_lv1: 3,
     },
+    // {
+    //   amountA1: 100,
+    //   crosschain_fee: 0,
+    //   type: 'CEX',
+    //   chain: 'BNB',
+    //   name_cex: 'Bybit',
+    //   cex_trade_fee: 0.001,
+    //   alert_gain: 'yes',
+    //   gain_lv1: 3,
+    // },
   ],
 };
 
 let item_o2_newtoken = {
-  token_name: 'SEILOR',
+  token_name: 'GMT',
   type: 'CEX',
   name_cex: 'Bybit',
   cex_trade_fee: 0.001,
-  cex_withdraw_fee: 8,
+  cex_withdraw_fee: 0.25,
   list_sell: [
     {
       amountA1: 100,
@@ -749,7 +749,7 @@ let item_o2_newtoken = {
       type: 'DEX',
       chain: 'BNB',
       name_dex: 'Pancake',
-      token_base: 'BUSD',
+      token_base: 'USDC',
       token_r: '',
       alert_gain: 'yes',
       gain_lv1: 3,
@@ -1041,9 +1041,9 @@ let item_t3_kcal = {
       name_cex: 'Bybit',
       cex_trade_fee: 0.001,
       alert_gain: 'yes',
-      gain_lv1: 0.4,
+      gain_lv1: 0.7,
       alert_tele: 'yes',
-      gain_tele: 0.5,
+      gain_tele: 0.8,
       count: 0,
       count_interval: 45,
     },
