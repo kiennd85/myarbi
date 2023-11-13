@@ -1,6 +1,20 @@
 import { useEffect, useState } from 'react';
-import { get_orderbook_bidget, get_orderbook_bybit, get_orderbook_gateio, get_orderbook_houbi } from '../../Common/cex_api';
-import { get_time_now, asyncProcessing_sell, asyncProcessing_buy, get_token_address_decimal_path, get_token_list_on_CEX, query_CEX_buyside, query_DEX_sellside, query_CEX_sellside } from '../../Common/function';
+import {
+  get_orderbook_bidget,
+  get_orderbook_bybit,
+  get_orderbook_gateio,
+  get_orderbook_houbi,
+} from '../../Common/cex_api';
+import {
+  get_time_now,
+  asyncProcessing_sell,
+  asyncProcessing_buy,
+  get_token_address_decimal_path,
+  get_token_list_on_CEX,
+  query_CEX_buyside,
+  query_DEX_sellside,
+  query_CEX_sellside,
+} from '../../Common/function';
 import { item_list_1 } from './data';
 import { item_list_2 } from './data';
 import { item_list_3 } from './data';
@@ -28,6 +42,7 @@ const token_list_3 = [
   { cex: 'Gateio', name: 'SPEX' },
   { cex: 'Gateio', name: 'FITFI' },
   { cex: 'Gateio', name: 'KCAL' },
+  { cex: 'Gateio', name: 'RJV' },
 ];
 // // console.log(token_list_1);
 // // console.log(token_list_2);
@@ -95,7 +110,12 @@ function cex_sell_token(order_book_bid, element) {
 }
 
 //buy trên cex
-function cex_buy_token(order_book_ask, element, cex_trade_fee, cex_withdraw_fee) {
+function cex_buy_token(
+  order_book_ask,
+  element,
+  cex_trade_fee,
+  cex_withdraw_fee
+) {
   const amountA = element.amountA1;
   const props = { amountA, order_book_ask, cex_trade_fee, cex_withdraw_fee };
   const obj_temp = query_CEX_buyside(props);
@@ -104,7 +124,12 @@ function cex_buy_token(order_book_ask, element, cex_trade_fee, cex_withdraw_fee)
 }
 
 //hàm xử lý swap trên dex
-async function process_swap_element(item, element, order_book_ask, current_order_book) {
+async function process_swap_element(
+  item,
+  element,
+  order_book_ask,
+  current_order_book
+) {
   const cex_trade_fee = item.cex_trade_fee;
   const cex_withdraw_fee = item.cex_withdraw_fee;
 
@@ -115,7 +140,13 @@ async function process_swap_element(item, element, order_book_ask, current_order
 
   const path = element.path1;
   const { tokenA, tokenB, router_contract, web3 } = element;
-  const dic_info = { tokenA: tokenA, tokenB: tokenB, path: path, router_contract: router_contract, web3: web3 };
+  const dic_info = {
+    tokenA: tokenA,
+    tokenB: tokenB,
+    path: path,
+    router_contract: router_contract,
+    web3: web3,
+  };
   const obj_temp = await query_DEX_sellside(dic_info, amountA2);
 
   element.price_sell = obj_temp.price_sell;
@@ -128,7 +159,11 @@ async function process_swap_element(item, element, order_book_ask, current_order
   element.dest = element.name_cex;
 
   //Lấy dữ liệu order_bid
-  const order_book_bid = cex_get_orderbook_bid(current_order_book, token_dest, cex_dest);
+  const order_book_bid = cex_get_orderbook_bid(
+    current_order_book,
+    token_dest,
+    cex_dest
+  );
 
   cex_sell_token(order_book_bid, element);
 
@@ -146,8 +181,14 @@ async function process_swap_element(item, element, order_book_ask, current_order
   if (element?.alert_tele === 'yes') {
     if (element.gain >= element.gain_tele && element.count === 0) {
       let msg = '[React] ';
-      msg += `Lệch giá ${item.token_name} (${item.name_cex}) > ${element.token_base}: ${element.gain.toFixed(2)}u\n`;
-      msg += `| ${element.amountA1}u| ${element.price_buy.toFixed(6)}| ${element.amountB1.toFixed(2)}| ${element.price_sell.toFixed(6)}| ${element.amountA3.toFixed(2)}`;
+      msg += `Lệch giá ${item.token_name} (${item.name_cex}) > ${
+        element.token_base
+      }: ${element.gain.toFixed(2)}u\n`;
+      msg += `| ${element.amountA1}u| ${element.price_buy.toFixed(
+        6
+      )}| ${element.amountB1.toFixed(2)}| ${element.price_sell.toFixed(
+        6
+      )}| ${element.amountA3.toFixed(2)}`;
       Telegram_send_msg(msg);
       element.count = element.count_interval;
     }
@@ -218,20 +259,39 @@ const useHook = () => {
       let template = '';
       if (tokenobj.cex == 'Bybit') {
         result = await get_orderbook_bybit(tokenobj.name);
-        template = { cex: tokenobj.cex, token: tokenobj.name, orderbook: result };
+        template = {
+          cex: tokenobj.cex,
+          token: tokenobj.name,
+          orderbook: result,
+        };
       } else if (tokenobj.cex == 'Gateio') {
         result = await get_orderbook_gateio(tokenobj.name);
-        template = { cex: tokenobj.cex, token: tokenobj.name, orderbook: result };
+        template = {
+          cex: tokenobj.cex,
+          token: tokenobj.name,
+          orderbook: result,
+        };
       } else if (tokenobj.cex == 'Houbi') {
         result = await get_orderbook_houbi(tokenobj.name);
-        template = { cex: tokenobj.cex, token: tokenobj.name, orderbook: result };
+        template = {
+          cex: tokenobj.cex,
+          token: tokenobj.name,
+          orderbook: result,
+        };
       } else if (tokenobj.cex == 'Bitget') {
         result = await get_orderbook_bidget(tokenobj.name);
-        template = { cex: tokenobj.cex, token: tokenobj.name, orderbook: result };
+        template = {
+          cex: tokenobj.cex,
+          token: tokenobj.name,
+          orderbook: result,
+        };
       }
       current_order_book.push(template);
     }
-    const promises_cex = token_list.map(async (tokenobj) => await asyncProcessing_orderbook(tokenobj, current_order_book));
+    const promises_cex = token_list.map(
+      async (tokenobj) =>
+        await asyncProcessing_orderbook(tokenobj, current_order_book)
+    );
     await Promise.all(promises_cex);
     //===================================================
     //Bắt đầu chạy dữ liệu
@@ -269,16 +329,25 @@ const useHook = () => {
         let order_book_ask;
 
         if (order_book_item === undefined) {
-          result_ui = { rs: 'NOK', detail: `${item.token_name}: not found the order book` };
+          result_ui = {
+            rs: 'NOK',
+            detail: `${item.token_name}: not found the order book`,
+          };
         } else if (order_book_item.orderbook === 'error') {
-          result_ui = { rs: 'NOK', detail: `${item.token_name}: error api cex` };
+          result_ui = {
+            rs: 'NOK',
+            detail: `${item.token_name}: error api cex`,
+          };
         } else {
           result_ui = { rs: 'OK', detail: '' };
           if (item.name_cex == 'Bybit') {
             if (order_book_item.orderbook.data.result?.a) {
               order_book_ask = order_book_item.orderbook.data.result.a;
             } else {
-              result_ui = { rs: 'NOK', detail: `${item.token_name}: error ask order book in api` };
+              result_ui = {
+                rs: 'NOK',
+                detail: `${item.token_name}: error ask order book in api`,
+              };
             }
           } else if (item.name_cex == 'Gateio') {
             order_book_ask = order_book_item.orderbook.data.asks;
@@ -291,11 +360,17 @@ const useHook = () => {
 
         if (result_ui.rs === 'OK') {
           //Lấy khối lượng buy trên cex và update vào item
-          const promises = item.list_sell.map(async (element) => await asyncProcessing_buy({ element, item, order_book_ask }));
+          const promises = item.list_sell.map(
+            async (element) =>
+              await asyncProcessing_buy({ element, item, order_book_ask })
+          );
           await Promise.all(promises);
 
           //Bước 2: Bán trên DEX
-          const promises_sell = item.list_sell.map(async (element) => await asyncProcessing_sell(element, current_order_book, item));
+          const promises_sell = item.list_sell.map(
+            async (element) =>
+              await asyncProcessing_sell(element, current_order_book, item)
+          );
           await Promise.all(promises_sell);
         }
 
@@ -314,14 +389,26 @@ const useHook = () => {
         const router_contract = item.information.router_contract;
         const web3 = item.information.web3;
 
-        const dic_info = { tokenA: tokenB, tokenB: tokenA, path: path, router_contract: router_contract, web3: web3 };
+        const dic_info = {
+          tokenA: tokenB,
+          tokenB: tokenA,
+          path: path,
+          router_contract: router_contract,
+          web3: web3,
+        };
 
         //const props = {}
-        const promises = item.list_sell.map(async (element) => await asyncProcessing_buy({ element, item, dic_info }));
+        const promises = item.list_sell.map(
+          async (element) =>
+            await asyncProcessing_buy({ element, item, dic_info })
+        );
         await Promise.all(promises);
 
         //===Bước 2: bán trên CEX/DEX====
-        const promises_sell = item.list_sell.map(async (element) => await asyncProcessing_sell(element, current_order_book, item));
+        const promises_sell = item.list_sell.map(
+          async (element) =>
+            await asyncProcessing_sell(element, current_order_book, item)
+        );
         await Promise.all(promises_sell);
       }
 
@@ -332,12 +419,21 @@ const useHook = () => {
         const name_cex = item.name_cex;
 
         //Lấy dữ liệu order book
-        const order_book_ask = cex_get_orderbook_ask(current_order_book, token_name, name_cex);
+        const order_book_ask = cex_get_orderbook_ask(
+          current_order_book,
+          token_name,
+          name_cex
+        );
 
         //Bước 2: Lấy số USD cần mua trên CEX > số lượng amount B
         if (order_book_ask !== undefined) {
           const promises = item.list_sell.map(async (element) => {
-            await process_swap_element(item, element, order_book_ask, current_order_book);
+            await process_swap_element(
+              item,
+              element,
+              order_book_ask,
+              current_order_book
+            );
           });
           await Promise.all(promises);
 
@@ -348,7 +444,12 @@ const useHook = () => {
             if (ele?.count > 0) {
               ele.count -= 1;
               //console.log(ele?.count);
-              const y = it.data.list_sell.find((x) => x.amountA1 === ele.amountA1 && x.name_dex === ele.name_dex && x.token_base === ele.token_base);
+              const y = it.data.list_sell.find(
+                (x) =>
+                  x.amountA1 === ele.amountA1 &&
+                  x.name_dex === ele.name_dex &&
+                  x.token_base === ele.token_base
+              );
               y.count = ele.count;
             }
           });
@@ -428,7 +529,9 @@ const useHook = () => {
       }
     }
 
-    const promises = item_list.map(async (it) => await asyncProcessing_item(it));
+    const promises = item_list.map(
+      async (it) => await asyncProcessing_item(it)
+    );
     await Promise.all(promises);
 
     // let j = 1;
@@ -473,7 +576,44 @@ const useHook = () => {
     Telegram_send_msg('hello');
   };
 
-  return { btnStart, btnStop, btnTest, o1_fitfi, o2_fitfi, o3_fitfi, o4_fitfi, o1_kcal, o2_kcal, o3_kcal, o1_primal, o2_primal, o3_primal, o4_primal, o1_rjv, o2_rjv, o3_rjv, o1_dao, o2_dao, o3_dao, o1_xeta, o2_xeta, o3_xeta, o4_xeta, o4_kcal, o5_xeta, o1_newtoken, o2_newtoken, o3_newtoken, t1_fitfi, t2_fitfi, t1_kcal, t2_kcal, t3_kcal, t1_primal, t1_spex };
+  return {
+    btnStart,
+    btnStop,
+    btnTest,
+    o1_fitfi,
+    o2_fitfi,
+    o3_fitfi,
+    o4_fitfi,
+    o1_kcal,
+    o2_kcal,
+    o3_kcal,
+    o1_primal,
+    o2_primal,
+    o3_primal,
+    o4_primal,
+    o1_rjv,
+    o2_rjv,
+    o3_rjv,
+    o1_dao,
+    o2_dao,
+    o3_dao,
+    o1_xeta,
+    o2_xeta,
+    o3_xeta,
+    o4_xeta,
+    o4_kcal,
+    o5_xeta,
+    o1_newtoken,
+    o2_newtoken,
+    o3_newtoken,
+    t1_fitfi,
+    t2_fitfi,
+    t1_kcal,
+    t2_kcal,
+    t3_kcal,
+    t1_primal,
+    t1_spex,
+  };
 };
 
 export default useHook;

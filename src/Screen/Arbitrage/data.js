@@ -881,6 +881,24 @@ let item_t1_fitfi = {
       count: 0,
       count_interval: 45,
     },
+
+    {
+      amountA1: 100,
+      crosschain_fee: 0,
+      type: 'SWAP',
+      chain: 'Step',
+      name_dex: 'Step',
+      token_base: 'RJV',
+      token_r: 'USDT',
+      name_cex: 'Gateio',
+      cex_trade_fee: 0.003,
+      alert_gain: 'no',
+      gain_lv1: 5.5,
+      alert_tele: 'no',
+      gain_tele: 6,
+      count: 0,
+      count_interval: 45,
+    },
   ],
 };
 
