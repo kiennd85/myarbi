@@ -1176,7 +1176,7 @@ export const item_list_2 = [
 export const item_list_3 = [
   { key: 't1', data: item_t1_fitfi },
   { key: 't2', data: item_t1_kcal },
-  { key: 't3', data: item_t2_kcal },
+  //{ key: 't3', data: item_t2_kcal },
   { key: 't4', data: item_t1_primal },
   { key: 't5', data: item_t1_spex },
   { key: 't6', data: item_t2_fitfi },
