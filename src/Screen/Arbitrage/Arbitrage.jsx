@@ -48,7 +48,7 @@ const Arbitrage = () => {
     <>
       <div
         className="kn_container"
-        style={{ display: 'flex', flexDirection: 'row' }}
+        style={{ display: 'flex', flexDirection: 'row', marginRight: '10px' }}
       >
         <div
           className="kn_box2"
@@ -135,7 +135,7 @@ const Arbitrage = () => {
         </div>
         <div
           className="kn_box1"
-          style={{ margin: '0 10px 0 5px' }}
+          style={{ marginLeft: '5px' }}
         >
           <div>
             <Table_head></Table_head>
