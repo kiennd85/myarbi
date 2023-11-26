@@ -5,7 +5,44 @@ import useHook from './useHook';
 import Table_addrow from './Table_addrow';
 
 const Arbitrage = () => {
-  const { btnStart, btnStop, btnTest, o1_fitfi, o2_fitfi, o3_fitfi, o4_fitfi, o1_kcal, o2_kcal, o3_kcal, o1_primal, o2_primal, o3_primal, o4_primal, o1_rjv, o2_rjv, o3_rjv, o1_dao, o2_dao, o3_dao, o1_xeta, o2_xeta, o3_xeta, o4_xeta, o4_kcal, o5_xeta, o1_newtoken, o2_newtoken, o3_newtoken, t1_fitfi, t2_fitfi, t1_kcal, t2_kcal, t3_kcal, t1_primal, t1_spex } = useHook();
+  const {
+    btnStart,
+    btnStop,
+    btnTest,
+    o1_fitfi,
+    o2_fitfi,
+    o3_fitfi,
+    o4_fitfi,
+    o1_kcal,
+    o2_kcal,
+    o3_kcal,
+    o1_primal,
+    o2_primal,
+    o3_primal,
+    o4_primal,
+    o1_rjv,
+    o2_rjv,
+    o3_rjv,
+    o1_dao,
+    o2_dao,
+    o3_dao,
+    o1_xeta,
+    o2_xeta,
+    o3_xeta,
+    o4_xeta,
+    o4_kcal,
+    o5_xeta,
+    o1_newtoken,
+    o2_newtoken,
+    o3_newtoken,
+    t1_fitfi,
+    t2_fitfi,
+    t1_kcal,
+    t2_kcal,
+    t3_kcal,
+    t1_primal,
+    t1_spex,
+  } = useHook();
   //console.log(111, obj_main);
   return (
     <>
@@ -98,7 +135,7 @@ const Arbitrage = () => {
         </div>
         <div
           className="kn_box1"
-          style={{ marginLeft: '5px' }}
+          style={{ margin: '0 10px 0 5px' }}
         >
           <div>
             <Table_head></Table_head>
@@ -117,7 +154,9 @@ const Arbitrage = () => {
             <Table_addrow table_obj={o4_fitfi}></Table_addrow>
           </div>
 
-          <div style={{ margin: '10px 0 10px 0' }}>==============================swap====================================================</div>
+          <div style={{ margin: '10px 0 10px 0' }}>
+            ==============================swap====================================================
+          </div>
           <div>
             <Table_addrow table_obj={t1_fitfi}></Table_addrow>
           </div>
@@ -150,14 +189,24 @@ const Arbitrage = () => {
 
       <button
         type="button"
-        style={{ margin: '20px', width: '120px', borderRadius: '5px', backgroundColor: 'yellow' }}
+        style={{
+          margin: '20px',
+          width: '120px',
+          borderRadius: '5px',
+          backgroundColor: 'yellow',
+        }}
         onClick={btnStart}
       >
         Start
       </button>
       <button
         type="button"
-        style={{ margin: '20px', width: '120px', borderRadius: '5px', backgroundColor: 'goldenrod' }}
+        style={{
+          margin: '20px',
+          width: '120px',
+          borderRadius: '5px',
+          backgroundColor: 'goldenrod',
+        }}
         onClick={btnStop}
       >
         Stop
