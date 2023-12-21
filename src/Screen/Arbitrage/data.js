@@ -833,6 +833,19 @@ let item_t1_fitfi = {
       count_interval: 45,
     },
     {
+      amountA1: 200,
+      crosschain_fee: 0,
+      type: 'SWAP',
+      chain: 'Step',
+      name_dex: 'Step',
+      token_base: 'RJV',
+      token_r: 'USDT',
+      name_cex: 'Gateio',
+      cex_trade_fee: 0.003,
+      alert_gain: 'no',
+      gain_lv1: 3,
+    },
+    {
       amountA1: 100,
       crosschain_fee: 0,
       type: 'SWAP',
@@ -1120,6 +1133,35 @@ let item_t1_spex = {
       count: 0,
       count_interval: 45,
     },
+  ],
+};
+
+let item_t1_rjv = {
+  token_name: 'RJV',
+  chain: 'Step',
+  type: 'SWAP',
+  name_cex: 'Gateio',
+  cex_trade_fee: 0.003,
+  cex_withdraw_fee: 40,
+  list_sell: [
+    {
+      amountA1: 50,
+      crosschain_fee: 0,
+      type: 'SWAP',
+      chain: 'Step',
+      name_dex: 'Step',
+      token_base: 'FITFI',
+      token_r: 'USDC',
+      name_cex: 'Bybit',
+      cex_trade_fee: 0.001,
+      alert_gain: 'yes',
+      gain_lv1: 0.8,
+      alert_tele: 'yes',
+      gain_tele: 0.8,
+      count: 0,
+      count_interval: 45,
+    },
+    //{ amountA1: 50, crosschain_fee: 0, type: 'SWAP', chain: 'Step', name_dex: 'Step', token_base: 'KCAL', token_r: 'USDC', name_cex: 'Bybit', cex_trade_fee: 0.001, alert_gain: 'yes', gain_lv1: 0.5 },
   ],
 };
 
