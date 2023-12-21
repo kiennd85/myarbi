@@ -6,16 +6,6 @@ let item_o1_fitfi = {
   cex_withdraw_fee: 1,
   list_sell: [
     {
-      amountA1: 200,
-      crosschain_fee: 0,
-      type: 'DEX',
-      chain: 'Step',
-      name_dex: 'Step',
-      token_base: 'USDT',
-      alert_gain: 'no',
-      gain_lv1: 1,
-    },
-    {
       amountA1: 100,
       crosschain_fee: 0,
       type: 'DEX',
@@ -477,16 +467,7 @@ let item_o1_dao = {
   cex_withdraw_fee: 1.1,
   list_sell: [
     {
-      amountA1: 400,
-      crosschain_fee: 10,
-      type: 'DEX',
-      chain: 'Step',
-      name_dex: 'Step',
-      token_base: 'USDC',
-      alert_gain: 'no',
-    },
-    {
-      amountA1: 400,
+      amountA1: 300,
       crosschain_fee: 0,
       type: 'DEX',
       chain: 'BNB',
@@ -495,7 +476,7 @@ let item_o1_dao = {
       alert_gain: 'no',
     },
     {
-      amountA1: 400,
+      amountA1: 300,
       crosschain_fee: 0,
       type: 'DEX',
       chain: 'BNB',
@@ -861,13 +842,14 @@ let item_t1_fitfi = {
       token_r: 'USDT',
       name_cex: 'Gateio',
       cex_trade_fee: 0.003,
-      alert_gain: 'no',
-      gain_lv1: 5.5,
-      alert_tele: 'no',
-      gain_tele: 6,
+      alert_gain: 'yes',
+      gain_lv1: 3,
+      alert_tele: 'yes',
+      gain_tele: 3,
       count: 0,
       count_interval: 45,
     },
+
     {
       amountA1: 200,
       crosschain_fee: 0,
