@@ -110,12 +110,7 @@ function cex_sell_token(order_book_bid, element) {
 }
 
 //buy trên cex
-function cex_buy_token(
-  order_book_ask,
-  element,
-  cex_trade_fee,
-  cex_withdraw_fee
-) {
+function cex_buy_token(order_book_ask, element, cex_trade_fee, cex_withdraw_fee) {
   const amountA = element.amountA1;
   const props = { amountA, order_book_ask, cex_trade_fee, cex_withdraw_fee };
   const obj_temp = query_CEX_buyside(props);
@@ -124,12 +119,7 @@ function cex_buy_token(
 }
 
 //hàm xử lý swap trên dex
-async function process_swap_element(
-  item,
-  element,
-  order_book_ask,
-  current_order_book
-) {
+async function process_swap_element(item, element, order_book_ask, current_order_book) {
   const cex_trade_fee = item.cex_trade_fee;
   const cex_withdraw_fee = item.cex_withdraw_fee;
 
@@ -159,11 +149,7 @@ async function process_swap_element(
   element.dest = element.name_cex;
 
   //Lấy dữ liệu order_bid
-  const order_book_bid = cex_get_orderbook_bid(
-    current_order_book,
-    token_dest,
-    cex_dest
-  );
+  const order_book_bid = cex_get_orderbook_bid(current_order_book, token_dest, cex_dest);
 
   cex_sell_token(order_book_bid, element);
 
@@ -184,11 +170,9 @@ async function process_swap_element(
       msg += `Lệch giá ${item.token_name} (${item.name_cex}) > ${
         element.token_base
       }: ${element.gain.toFixed(2)}u\n`;
-      msg += `| ${element.amountA1}u| ${element.price_buy.toFixed(
-        6
-      )}| ${element.amountB1.toFixed(2)}| ${element.price_sell.toFixed(
-        6
-      )}| ${element.amountA3.toFixed(2)}`;
+      msg += `| ${element.amountA1}u| ${element.price_buy.toFixed(6)}| ${element.amountB1.toFixed(
+        2
+      )}| ${element.price_sell.toFixed(6)}| ${element.amountA3.toFixed(2)}`;
       Telegram_send_msg(msg);
       element.count = element.count_interval;
     }
@@ -236,6 +220,7 @@ const useHook = () => {
   const [t1_primal, set_t1_primal] = useState('');
   const [t1_spex, set_t1_spex] = useState('');
   const [t3_kcal, set_t3_kcal] = useState('');
+  const [t1_rjv, set_t1_rjv] = useState('');
 
   //Token lấy trên CEX
   //const token_list = ['FITFI', 'KCAL', 'PRIMAL'];
@@ -289,8 +274,7 @@ const useHook = () => {
       current_order_book.push(template);
     }
     const promises_cex = token_list.map(
-      async (tokenobj) =>
-        await asyncProcessing_orderbook(tokenobj, current_order_book)
+      async (tokenobj) => await asyncProcessing_orderbook(tokenobj, current_order_book)
     );
     await Promise.all(promises_cex);
     //===================================================
@@ -361,15 +345,13 @@ const useHook = () => {
         if (result_ui.rs === 'OK') {
           //Lấy khối lượng buy trên cex và update vào item
           const promises = item.list_sell.map(
-            async (element) =>
-              await asyncProcessing_buy({ element, item, order_book_ask })
+            async (element) => await asyncProcessing_buy({ element, item, order_book_ask })
           );
           await Promise.all(promises);
 
           //Bước 2: Bán trên DEX
           const promises_sell = item.list_sell.map(
-            async (element) =>
-              await asyncProcessing_sell(element, current_order_book, item)
+            async (element) => await asyncProcessing_sell(element, current_order_book, item)
           );
           await Promise.all(promises_sell);
         }
@@ -399,15 +381,13 @@ const useHook = () => {
 
         //const props = {}
         const promises = item.list_sell.map(
-          async (element) =>
-            await asyncProcessing_buy({ element, item, dic_info })
+          async (element) => await asyncProcessing_buy({ element, item, dic_info })
         );
         await Promise.all(promises);
 
         //===Bước 2: bán trên CEX/DEX====
         const promises_sell = item.list_sell.map(
-          async (element) =>
-            await asyncProcessing_sell(element, current_order_book, item)
+          async (element) => await asyncProcessing_sell(element, current_order_book, item)
         );
         await Promise.all(promises_sell);
       }
@@ -419,21 +399,12 @@ const useHook = () => {
         const name_cex = item.name_cex;
 
         //Lấy dữ liệu order book
-        const order_book_ask = cex_get_orderbook_ask(
-          current_order_book,
-          token_name,
-          name_cex
-        );
+        const order_book_ask = cex_get_orderbook_ask(current_order_book, token_name, name_cex);
 
         //Bước 2: Lấy số USD cần mua trên CEX > số lượng amount B
         if (order_book_ask !== undefined) {
           const promises = item.list_sell.map(async (element) => {
-            await process_swap_element(
-              item,
-              element,
-              order_book_ask,
-              current_order_book
-            );
+            await process_swap_element(item, element, order_book_ask, current_order_book);
           });
           await Promise.all(promises);
 
@@ -526,12 +497,12 @@ const useHook = () => {
         set_t2_fitfi(item);
       } else if (it.key == 't7') {
         set_t3_kcal(item);
+      } else if (it.key == 't8') {
+        set_t1_rjv(item);
       }
     }
 
-    const promises = item_list.map(
-      async (it) => await asyncProcessing_item(it)
-    );
+    const promises = item_list.map(async (it) => await asyncProcessing_item(it));
     await Promise.all(promises);
 
     // let j = 1;
@@ -613,6 +584,7 @@ const useHook = () => {
     t3_kcal,
     t1_primal,
     t1_spex,
+    t1_rjv,
   };
 };
 

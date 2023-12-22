@@ -42,6 +42,7 @@ const Arbitrage = () => {
     t3_kcal,
     t1_primal,
     t1_spex,
+    t1_rjv,
   } = useHook();
   //console.log(111, obj_main);
   return (
@@ -71,7 +72,7 @@ const Arbitrage = () => {
             <div>
               <Table_addrow table_obj={o4_fitfi}></Table_addrow>
             </div>
-            <div>===============</div>
+            <hr></hr>
             <div>
               <Table_addrow table_obj={t1_fitfi}></Table_addrow>
             </div>
@@ -87,17 +88,20 @@ const Arbitrage = () => {
             <div>
               <Table_addrow table_obj={t2_kcal}></Table_addrow>
             </div>
-            <br></br>
-            <div>
-              <Table_addrow table_obj={t3_kcal}></Table_addrow>
-            </div>
-            <br></br>
+
             <div>
               <Table_addrow table_obj={t1_primal}></Table_addrow>
             </div>
             <br></br>
             <div>
               <Table_addrow table_obj={t1_spex}></Table_addrow>
+            </div>
+            <br></br>
+            <div>
+              <Table_addrow table_obj={t3_kcal}></Table_addrow>
+            </div>
+            <div>
+              <Table_addrow table_obj={t1_rjv}></Table_addrow>
             </div>
           </div>
           <div

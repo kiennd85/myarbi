@@ -352,16 +352,16 @@ let item_o4_primal = {
       alert_gain: 'no',
       gain_lv1: 50,
     },
-    {
-      amountA1: 210,
-      crosschain_fee: 1000,
-      type: 'DEX',
-      chain: 'Step',
-      name_dex: 'Step',
-      token_base: 'USDC',
-      alert_gain: 'no',
-      gain_lv1: 50,
-    },
+    // {
+    //   amountA1: 210,
+    //   crosschain_fee: 1000,
+    //   type: 'DEX',
+    //   chain: 'Step',
+    //   name_dex: 'Step',
+    //   token_base: 'USDC',
+    //   alert_gain: 'no',
+    //   gain_lv1: 50,
+    // },
   ],
 };
 
@@ -1141,17 +1141,17 @@ let item_t1_rjv = {
   chain: 'Step',
   type: 'SWAP',
   name_cex: 'Gateio',
-  cex_trade_fee: 0.003,
-  cex_withdraw_fee: 40,
+  cex_trade_fee: 0.001,
+  cex_withdraw_fee: 0,
   list_sell: [
     {
-      amountA1: 50,
+      amountA1: 200,
       crosschain_fee: 0,
       type: 'SWAP',
       chain: 'Step',
       name_dex: 'Step',
       token_base: 'FITFI',
-      token_r: 'USDC',
+      token_r: 'USDT',
       name_cex: 'Bybit',
       cex_trade_fee: 0.001,
       alert_gain: 'yes',
@@ -1205,5 +1205,6 @@ export const item_list_3 = [
   { key: 't5', data: item_t1_spex },
   { key: 't6', data: item_t2_fitfi },
   { key: 't7', data: item_t3_kcal },
+  { key: 't8', data: item_t1_rjv },
 ];
 //key max = 29
