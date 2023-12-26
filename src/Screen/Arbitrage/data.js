@@ -372,17 +372,17 @@ let item_o1_rjv = {
   cex_trade_fee: 0.003,
   cex_withdraw_fee: 50,
   list_sell: [
+    // {
+    //   amountA1: 250,
+    //   crosschain_fee: 44,
+    //   type: 'DEX',
+    //   chain: 'Step',
+    //   name_dex: 'Step',
+    //   token_base: 'USDT',
+    //   alert_gain: 'no',
+    // },
     {
-      amountA1: 250,
-      crosschain_fee: 44,
-      type: 'DEX',
-      chain: 'Step',
-      name_dex: 'Step',
-      token_base: 'USDT',
-      alert_gain: 'no',
-    },
-    {
-      amountA1: 210,
+      amountA1: 200,
       crosschain_fee: 0,
       type: 'DEX',
       chain: 'BNB',
@@ -1181,7 +1181,7 @@ export const item_list_1 = [
 
 export const item_list_2 = [
   { key: 10, data: item_o4_primal },
-  // { key: 11, data: item_o1_rjv },
+  { key: 11, data: item_o1_rjv },
   { key: 12, data: item_o2_rjv },
   // { key: 13, data: item_o3_rjv },
   { key: 16, data: item_o1_dao },
