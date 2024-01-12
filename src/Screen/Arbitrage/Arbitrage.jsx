@@ -56,10 +56,10 @@ const Arbitrage = () => {
             className="kn_box1"
             style={{ margin: '5px 10px 5px 10px' }}
           >
-            <div>
+            {/* <div>
               <Table_head></Table_head>
             </div>
-            <br></br>
+            <br></br> */}
             <div>
               <Table_addrow table_obj={o1_fitfi}></Table_addrow>
             </div>
@@ -108,10 +108,10 @@ const Arbitrage = () => {
             className="kn_box2"
             style={{ margin: '5px 10px 5px 10px' }}
           >
-            <div>
+            {/* <div>
               <Table_head></Table_head>
             </div>
-            <br></br>
+            <br></br> */}
 
             <div>
               <Table_addrow table_obj={o1_kcal}></Table_addrow>

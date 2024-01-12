@@ -473,7 +473,12 @@ let item_o1_dao = {
       chain: 'BNB',
       name_dex: 'Pancake',
       token_base: 'USDT',
-      alert_gain: 'no',
+      alert_gain: 'yes',
+      gain_lv1: 6,
+      alert_tele: 'yes',
+      gain_tele: 6,
+      count: 0,
+      count_interval: 45,
     },
     {
       amountA1: 300,
@@ -686,11 +691,11 @@ let item_o5_xeta = {
 };
 
 let item_o1_newtoken = {
-  token_name: 'GMT',
+  token_name: 'SEILOR',
   type: 'DEX',
   chain: 'BNB',
   name_dex: 'Pancake',
-  token_base: 'USDC',
+  token_base: 'USDT',
   //token_r: '',
   information: '',
   list_sell: [
@@ -703,26 +708,30 @@ let item_o1_newtoken = {
       cex_trade_fee: 0.001,
       alert_gain: 'yes',
       gain_lv1: 3,
+      alert_tele: 'yes',
+      gain_tele: 5,
+      count: 0,
+      count_interval: 45,
     },
-    // {
-    //   amountA1: 100,
-    //   crosschain_fee: 0,
-    //   type: 'CEX',
-    //   chain: 'BNB',
-    //   name_cex: 'Bybit',
-    //   cex_trade_fee: 0.001,
-    //   alert_gain: 'yes',
-    //   gain_lv1: 3,
-    // },
+    {
+      amountA1: 100,
+      crosschain_fee: 0,
+      type: 'CEX',
+      chain: 'BNB',
+      name_cex: 'Gateio',
+      cex_trade_fee: 0.003,
+      alert_gain: 'yes',
+      gain_lv1: 3,
+    },
   ],
 };
 
 let item_o2_newtoken = {
-  token_name: 'GMT',
+  token_name: 'SEILOR',
   type: 'CEX',
   name_cex: 'Bybit',
   cex_trade_fee: 0.001,
-  cex_withdraw_fee: 0.25,
+  cex_withdraw_fee: 10,
   list_sell: [
     {
       amountA1: 100,
@@ -730,7 +739,7 @@ let item_o2_newtoken = {
       type: 'DEX',
       chain: 'BNB',
       name_dex: 'Pancake',
-      token_base: 'USDC',
+      token_base: 'USDT',
       token_r: '',
       alert_gain: 'yes',
       gain_lv1: 3,
