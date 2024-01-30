@@ -88,7 +88,7 @@ const Arbitrage = () => {
             <div>
               <Table_addrow table_obj={t2_kcal}></Table_addrow>
             </div>
-
+            <br></br>
             <div>
               <Table_addrow table_obj={t1_primal}></Table_addrow>
             </div>
